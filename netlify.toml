@@ -2,6 +2,12 @@
   publish = "dist" # Ajusta esto a tu carpeta de construcción si es diferente
   command = "npm run build"
 
+  
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
 
 [dev]
   command = "npm run dev"

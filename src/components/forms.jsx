@@ -180,7 +180,7 @@ const handleSubmit = async (e) => {
 
 
   return (
-    <div className="multistep-wrapper col-lg-11">
+    <div className="multistep-wrapper col-lg-11" id="multistep-form">
       <form id="msform" onSubmit={handleSubmit} className="col-lg-11">
         {/* Progressbar */}
         <ul id="progressbar">

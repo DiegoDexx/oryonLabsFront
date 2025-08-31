@@ -4,7 +4,7 @@ import { FaTwitter, FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="site-footer col-lg-11">
+    <footer className="site-footer col-lg-11" id="footer">
       <div className="container">
         <div className="row flex-row">
           <div className="col-sm-12 col-md-6">

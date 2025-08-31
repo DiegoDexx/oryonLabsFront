@@ -1,7 +1,8 @@
 import { FaPuzzlePiece, FaCoffee, FaPlay } from "react-icons/fa";
-
-
+import { Navigate } from "react-router-dom";
 const WhyChooseUsCards = () => {
+  const navigate = Navigate();
+
   return (
     <section className="why-choose-us">
       <div className="item">
@@ -33,8 +34,8 @@ const WhyChooseUsCards = () => {
           Porque ofrecemos soluciones innovadoras y personalizadas para cada
           cliente.
         </p>
-        <button className="outline_btn">Saber más</button>
-      
+        <button className="outline_btn" onClick={() => navigate('/faq')}>Saber más</button>
+
       </div>
     </section>
   );

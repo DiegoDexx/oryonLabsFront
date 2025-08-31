@@ -10,8 +10,14 @@ const Banner = () => {
           Haz crecer tu negocio con nuestra plataforma y llévalo al siguiente nivel.
         </h4>
         <div className="banner__buttons">
-          <button className="btn btn-main">Comenzar</button>
-          <button className="btn btn-outline">Aprender más</button>
+          <button className="btn btn-main" onClick={() => {
+            const el = document.getElementById('multistep-form');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }}>Comenzar</button>
+          <button className="btn btn-outline" onClick={() => {
+            const el = document.getElementById('footer');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }}>Aprender más</button>
         </div>
         <div className="banner__social">
           <button className="btn btn-outline">
