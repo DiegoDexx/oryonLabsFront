@@ -205,9 +205,8 @@ const handleSubmit = async (e) => {
               onChange={(e) => setClientName(e.target.value)}
             />
             {errors.clientName && <div className="error-msg">{errors.clientName}</div>}
-
-            
-              <input
+             
+             <input
               type="email"
               placeholder="Correo electrónico"
               required
@@ -215,10 +214,10 @@ const handleSubmit = async (e) => {
               onChange={(e) => setClientEmail(e.target.value)}
             />
             {errors.clientEmail && <div className="error-msg">{errors.clientEmail}</div>}
-   
-                <input
-              type="text"
-              placeholder="Numero de telefono"
+
+            <input
+              type="tel"
+              placeholder="Número de teléfono"
               required
               pattern="^[0-9]{7,15}$"
               value={clientPhone}
@@ -226,8 +225,19 @@ const handleSubmit = async (e) => {
             />
             {errors.clientPhone && <div className="error-msg">{errors.clientPhone}</div>}
 
-            <input type="button" value="Siguiente" className="action-button" onClick={nextStep} />
-            
+            <input type="button" value="Siguiente" className="action-button" onClick={() => {
+              const emailValid = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(clientEmail);
+              const phoneValid = /^[0-9]{7,15}$/.test(clientPhone);
+              if (!emailValid || !phoneValid) {
+                setErrors({
+                  ...errors,
+                  clientEmail: !emailValid ? "Correo inválido." : undefined,
+                  clientPhone: !phoneValid ? "Teléfono inválido (solo números, 7-15 dígitos)." : undefined,
+                });
+                return;
+              }
+              nextStep();
+            }} />
 
             
           </fieldset>
