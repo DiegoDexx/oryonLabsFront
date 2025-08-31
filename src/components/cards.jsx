@@ -1,7 +1,7 @@
 import { FaPuzzlePiece, FaCoffee, FaPlay } from "react-icons/fa";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const WhyChooseUsCards = () => {
-  const navigate = Navigate();
+  const navigate = useNavigate();
 
   return (
     <section className="why-choose-us">
