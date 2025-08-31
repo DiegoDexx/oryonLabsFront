@@ -208,7 +208,7 @@ const handleSubmit = async (e) => {
 
             
               <input
-              type="text"
+              type="email"
               placeholder="Correo electrónico"
               required
               value={clientEmail}
@@ -220,6 +220,7 @@ const handleSubmit = async (e) => {
               type="text"
               placeholder="Numero de telefono"
               required
+              pattern="^[0-9]{7,15}$"
               value={clientPhone}
               onChange={(e) => setClientPhone(e.target.value)}
             />
