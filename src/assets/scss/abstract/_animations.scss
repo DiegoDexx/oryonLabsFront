@@ -1,0 +1,81 @@
+.fade-in,
+.aparecer-derecha,
+.aparecer-izquierda,
+.aparecer-arriba {
+  opacity: 0; // Todos comienzan ocultos
+  will-change: opacity, transform; // Optimiza el rendimiento de la animación
+}
+
+.visible {
+  opacity: 1; // Visible cuando entra en la vista
+  transform: translateX(0) translateY(0); // Reinicia cualquier transformación
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+// Animaciones
+@mixin fade-in($duración: 0.5s) {
+  animation: fade-in-animation $duración ease-in-out forwards;
+}
+
+@keyframes fade-in-animation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@mixin aparecer-desde-derecha($duración: 0.5s) {
+  animation: aparecer-derecha $duración ease-out forwards;
+}
+
+@keyframes aparecer-derecha {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@mixin aparecer-desde-izquierda($duración: 0.5s) {
+  animation: aparecer-izquierda $duración ease-out forwards;
+}
+
+@keyframes aparecer-izquierda {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@mixin aparecer-desde-arriba($duración: 0.5s) {
+  animation: aparecer-arriba $duración ease-out forwards;
+}
+
+@keyframes aparecer-arriba {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveToTop {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50px); 
+  }
+}

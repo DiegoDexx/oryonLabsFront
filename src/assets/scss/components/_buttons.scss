@@ -1,0 +1,18 @@
+@import '../abstract/variables';
+@import '../base/typography';
+
+
+@mixin header-button($background, $color, $border, $width){
+    background: $background;
+    color: $color;
+    border: $border;
+    border-radius: 17px;
+    font-family: 'Jost', 'sans-serif';  
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    width: $width;
+
+
+}
+

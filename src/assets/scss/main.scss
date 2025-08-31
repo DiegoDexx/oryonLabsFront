@@ -1,0 +1,51 @@
+// main.scss
+
+// Importa reset y estilos básicos
+
+@import 'base/typography';
+@import 'base/base';
+@import 'base/reset';
+
+
+// Importa herramientas como mixins y variables
+@import 'abstract/mixins';
+@import 'abstract/functions';
+@import 'abstract/variables';
+
+//componentes 
+@import 'components/buttons';
+@import 'components/separator';
+@import 'components/scrollButton';
+@import 'components/secondary_navbar';
+
+// Importa estilos de la estructura de la página
+@import 'layouts/grid';
+@import 'layouts/navbar';
+@import 'layouts/banner';
+@import 'layouts/cards';
+@import 'layouts/successModal';
+// @import 'layouts/productlist';
+// @import 'layouts/advantages';
+// @import 'layouts/adviceModal';
+// @import 'layouts/selectInfo';
+// @import 'layouts/addProduct';
+ @import 'layouts/footer';
+// @import 'layouts/productSlider';
+// @import 'layouts/quantity';
+// @import 'layouts/topPromotion';
+@import 'layouts/forms';
+// @import 'layouts/cartModal';
+// @import 'layouts/SecondBanner';
+// @import 'layouts/newProductbanner'; 
+// @import 'layouts/search'; // Importa el buscador
+
+// // Importa estilos específicos de la página home
+
+@import 'pages/loadingPage';
+@import 'pages/home';
+@import "pages/register";
+@import "pages/modal_login";
+@import "pages/modal-edit";
+@import "pages/adminPanel";
+@import "pages/bookingModal";
+@import "pages/contactPage";

@@ -1,0 +1,49 @@
+
+
+
+    .header{  
+      @include flex-container(column, flex-start, flex-start); // Centra el contenido
+      gap: 0px;
+      padding: 0; // Espaciado interno
+      .line{
+        @include flex-container(row, flex-start, flex-start);
+        align-items: flex-start;
+        padding: 0; // Espaciado interno
+        margin: 0; // Espaciado interno
+        @include separator($secondary-color, $secondary-color, 5px, 70%); // Línea horizontal
+        margin-bottom: 2rem;
+        width: 70%;
+    
+        @include mobile() {
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+        }
+      }
+      
+    .title {
+    
+      @include flex-container(row, flex-start, left); // Centra el título a la izquierda
+      max-width: 100%;
+      text-align: left;
+      padding-top: 3rem;
+    
+      color: $secondary-color;
+      font-size: 1.6rem;
+      font-family: 'Rubik', sans-serif;
+      font-weight: 400;
+      line-height: 1;
+      .p1{
+    
+        font-size: 1.6rem;
+        color: $primary-color;
+        line-height: 1;
+        font-weight: 600;
+        padding-left: 10px;
+      }
+    
+      @include mobile() {
+        font-size: 1.5rem;
+        padding-top: 2rem;
+      }
+    }
+    }

@@ -1,0 +1,173 @@
+@import '../abstract/variables';
+@import '../abstract/mixins';
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-modal{
+    display: none;
+}
+
+.modal-inner {
+  background-color: $tertiary-color;
+  color: $primary-color;
+  max-width: 400px;
+  width: 100%;
+  padding: 0.50rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  position: relative;
+
+  @include respond(mobile) {
+    padding: 15px;
+  }     
+}
+
+.modal-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: $fourth-color;
+
+
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    img {
+      height: 55px;
+      object-fit: contain;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      color: $secondary-color;
+    }
+  }
+
+ 
+  .close-button {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: #000000;
+    cursor: pointer;
+
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+}
+
+.modal-content {
+    background: #f5f5f5;
+    padding: 0.70rem;
+
+    .login-form {
+    @include flex-container(column, center, center);
+        gap: 0;
+
+      .form-group {
+        width: 100%;
+        margin-bottom: 1rem;
+
+        label {
+          display: block;
+          margin-bottom: 0.5rem;
+          font-size: 0.75rem;
+          color: $primary-color;
+          align-self: flex-start;
+
+        }
+
+        .form-control {
+          width: calc(100% - 20px);
+          padding: 0.75rem;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          margin: 0 auto;
+        }
+
+        input[type="date"] {
+          padding: 0.55rem;
+          font-size: 12px;
+        }
+      }
+
+      .btn {
+        width: 100%;
+        padding: 0.75rem;
+        background-color: #000000;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 1rem;
+
+        &:hover {
+          background-color: $tertiary-color;
+          color: $primary-color;
+          box-shadow: inset;
+          border: 1px solid $secondary-color;
+        
+        }
+      }
+
+      .btn-primary:hover {
+        background-color: #000000;
+      }
+
+
+   
+    }
+  
+
+  .register-link {
+            @include flex-container(row     , center, center );
+            gap: 10px;
+            margin-top: 1rem;
+            font-size: 0.75rem;
+            color: #0c0d0e;
+            cursor: pointer;
+          
+
+    a {
+      color: $secondary-color;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.success-message {
+  color: green;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.error-message {
+  color: red;
+  font-size: 1rem;
+  margin-top: 10px;
+}

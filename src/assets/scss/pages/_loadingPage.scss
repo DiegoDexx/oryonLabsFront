@@ -1,0 +1,40 @@
+// src/components/LoadingScreen.scss
+
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; // Asegura que la pantalla de carga esté sobre todo el contenido
+  
+    .loading-spinner {
+      border: 8px solid rgba(255, 255, 255, 0.2); // Fondo de la rueda de carga
+      border-left: 8px solid white; // Color de la rueda de carga
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      animation: spin 1s linear infinite; // Animación de rotación
+    }
+  
+    .loading-image {
+      position: absolute;
+      width: 80px; // Ajusta el tamaño de la imagen según sea necesario
+      height: auto;
+      align-items: center;
+    }
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  

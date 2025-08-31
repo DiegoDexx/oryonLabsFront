@@ -1,0 +1,63 @@
+@import '../abstract/variables';
+@import '../abstract/mixins';
+
+// Grid.scss
+// --------------------------------------------------
+// Configuración de un grid responsive adaptable a diferentes tamaños de pantalla.
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); // Columnas adaptables
+    gap: 2rem; // Espaciado predeterminado
+    margin: 0; // Sin márgenes adicionales
+    padding: 0; // Sin relleno adicional
+
+    // Ajustes para pantallas pequeñas
+    @include respond(mobile) {
+        grid-template-columns: 1fr; // Una sola columna en móviles
+        gap: 1rem; // Espaciado reducido en móviles
+    }
+
+    // Ajustes para tablets
+    @include respond(tablet) {
+        grid-template-columns: repeat(2, 1fr); // Dos columnas en tablets
+        gap: 1.5rem; // Espaciado intermedio en tablets
+    }
+
+    // Ajustes para pantallas grandes
+    @include respond(desktop) {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); // Columnas adaptables en pantallas grandes
+        gap: 2.5rem; // Espaciado mayor en pantallas grandes
+    }
+}
+
+// Clases responsivas para columnas
+@for $i from 1 through $grid-columns {
+    // Asignación de clases para portátil
+    .col-lg-#{$i} {
+        @include respond(desktop) {
+            grid-column: span $i;
+        }
+    }
+
+    // Asignación para tablets
+    .col-md-#{$i} {
+        @include respond(tablet) {
+            grid-column: span $i;
+        }
+    }
+
+    // Asignación para móvil
+    .col-sm-#{$i} {
+        @include respond(mobile) {
+            grid-column: span $i;
+        }
+    }
+}
+
+// Clase para filas
+.row {
+    display: grid;
+    grid-auto-rows: minmax(100px, auto); // Altura adaptable para las filas
+    gap: 1.5rem; // Espaciado entre filas
+}

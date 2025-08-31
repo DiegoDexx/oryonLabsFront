@@ -1,0 +1,134 @@
+@import '../abstract/variables'; // Importamos las variables globales
+@import '../abstract/mixins'; // Importamos los mixins globales
+
+.admin-panel {
+  @include flex-container(column, center, flex-start);
+  max-width: 83.33%; // Ajuste para pantallas pequeñas
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: $tertiary-color;
+  color: $primary-color;
+
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+
+    @include respond(mobile) {
+      font-size: 1.2rem;
+    }
+  }
+
+  .selection-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 20px;
+
+    button {
+      padding: 10px 15px;
+      font-size: 1rem;
+      background-color: $secondary-color;
+      color: $tertiary-color;
+
+      @include respond(mobile) {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+      }
+    }
+  }
+
+  .product-table,
+  .orders-table {
+    align-items: center;
+    margin: 0 auto;
+
+    .product-table-header,
+    .orders-table-header {
+      @include flex-container(row, space-between, center);
+      margin-bottom: 10px;
+
+      h2 {
+        font-size: 1.2rem;
+        color: $primary-color;
+
+        @include respond(mobile) {
+          font-size: 1rem;
+        }
+      }
+
+      button {
+        padding: 5px 10px;
+        font-size: 0.9rem;
+        background-color: $secondary-color;
+        color: $tertiary-color;
+        border : none;
+        cursor: pointer;
+        border-radius: 5px;
+
+        @include respond(mobile) {
+          font-size: 0.8rem;
+          padding: 4px 8px;
+        }
+
+        &:hover {
+          background-color: $tertiary-color;
+          color: $secondary-color;
+          border: 1px solid $secondary-color;
+          transition: background-color 0.3s ease, color 0.3s ease;
+        }
+      }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      margin: 0 auto;
+      th,
+      td {
+        border: 1px solid $fourth-color;
+        padding: 10px;
+        text-align: left;
+
+        @include respond(mobile) {
+          padding: 8px;
+          font-size: 0.9rem;
+        }
+      }
+
+      th {
+        background-color: $secondary-color;
+        color: $tertiary-color;
+      }
+
+      tr:nth-child(even) {
+        background-color: lighten($fourth-color, 10%);
+      }
+    }
+
+    .edit-button,
+    .delete-button {
+      padding: 5px 10px;
+      font-size: 0.9rem;
+
+      @include respond(mobile) {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+      }
+    }
+  }
+
+  // Responsividad para pantallas pequeñas
+  @include respond(mobile) {
+    padding: 15px;
+
+    .product-table,
+    .orders-table {
+      table {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}

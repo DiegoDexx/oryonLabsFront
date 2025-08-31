@@ -1,0 +1,141 @@
+@import "../abstract/variables";
+@import "../abstract/mixins";
+
+
+
+.site-footer {
+  width: 83.33%;
+
+  background-color: $tertiary-color;
+  border-top: 1px solid $fourth-color;
+  padding: 45px 0 20px;
+  font-size: 15px;
+  line-height: 24px;
+  color: $fourth-color;
+  margin: 0 auto;
+
+  .container{
+    
+    margin: 0 auto;
+
+    .flex-row{
+      @include flex-container(row, space-between, center);
+      gap: 5px;
+    }
+  }
+
+  hr {
+    border-top-color: $primary-color;
+    opacity: 0.5;
+  }
+
+  h6 {
+    color: $primary-color;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-top: 5px;
+    letter-spacing: 2px;
+  }
+
+  a {
+    color: $primary-color;
+
+    &:hover {
+      color: $secondary-color;
+      text-decoration: none;
+    }
+  }
+
+  p{
+    margin-bottom: 0;
+    color: $primary-color;
+  }
+
+  .footer-links {
+    padding-left: 0;
+    list-style: none;
+    line-height: 1.8;
+
+
+    li {
+      display: block;
+      a {
+        text-decoration: none;
+        color: $primary-color;
+        transition: all 0.2s linear;
+
+     
+        &:hover,
+        &:focus,
+        &:active {
+          color: $secondary-color;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .social-icons {
+    @include flex-container(row, flex-end, center);
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+
+    li {
+      display: inline-block;
+      margin-bottom: 4px;
+      padding: 10px;
+
+      a {
+        width: 44px;
+        height: 44px;
+     
+        display: inline-block;
+        text-align: center;
+        padding: 10px;
+        margin-right: 8px;
+        border-radius: 100%;
+        font-size: 16px;
+        color: $tertiary-color;
+        background-color: $secondary-dark;
+        transition: all 0.2s linear;
+
+        svg {
+          transition: all 0.2s linear;
+          font-size: 18px;
+          color: $tertiary-color;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+          color: $tertiary-color;
+          background-color: $secondary-color;
+        }
+
+        &.facebook:hover { background-color: #3b5998; }
+        &.twitter:hover { background-color: #00aced; }
+        &.linkedin:hover { background-color: #007bb6; }
+        &.dribbble:hover { background-color: #ea4c89; }
+      }
+    }
+  }
+
+  .copyright-text {
+    margin: 0;
+  }
+
+  @include mobile() {
+    [class^="col-"] {
+      margin-bottom: 30px;
+    }
+  }
+
+  @include mobile() {
+    padding-bottom: 0;
+    .copyright-text,
+    .social-icons {
+      text-align: center;
+    }
+  }
+}

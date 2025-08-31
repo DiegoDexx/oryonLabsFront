@@ -1,0 +1,30 @@
+
+$primary-color: rgb(7, 6, 6);
+$secondary-color: #008ECC;
+$secondary-dark: #2c80b9;  // tono más oscuro manualmente elegido
+$tertiary-color: rgb(255, 255, 255);
+
+$fourth-color:#dbeaf0;
+ // Púrpura oscuro
+
+ $breakpoints: (
+  mobile: 576px,   // Móviles
+  tablet: 768px,   // Tablets
+  desktop: 992px,  // Portátiles y monitores
+);
+
+
+$text-color: #fff;
+
+// $clip-border1: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
+// $clip-border2: polygon(0 0, 80% 0, 100% 100%, 0% 100%);
+// $clip-border_responsive:  polygon(0 1%, 100% 0, 100% 100%, 0% 100%);;
+
+$row-height:28rem;
+$row-laptop-height: 32rem;
+$row-mobile-height: 50rem;
+$cards-container-height: 55rem;
+$grid-columns: 12;
+$grid-base3-columns: 6;
+// $grid-rows: 12;
+

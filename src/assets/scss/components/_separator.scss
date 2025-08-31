@@ -1,0 +1,8 @@
+@mixin separator($color, $background-color, $height, $width){
+    color: $color;
+    background-color: $background-color;
+    height: $height;
+    width: $width;
+    
+
+}

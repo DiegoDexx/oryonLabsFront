@@ -1,0 +1,320 @@
+@import '../abstract/variables'; // Importamos las variables globales
+@import '../abstract/mixins'; // Importamos los mixins globales
+
+.topnav {
+  background: none; // Color de fondo del contenedor
+  // box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  //topnav deberá quedarse fijo al hacer scroll
+  position: sticky;
+  margin: 0 auto;
+  max-width: 83.33%;
+  top: 0;
+  z-index: 1099; // Asegura que el navbar esté por encima de otros elementos
+
+  &.secondary-navbar{
+    @include flex-container(row, space-between, center);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: $tertiary-color;
+  }
+
+  .head-container {
+    @include flex-container(row, space-between, center); // Asegura que los elementos estén distribuidos correctamente
+    padding: 10px 10px; // Espaciado interno
+    max-width: 100%; // Ancho máximo del contenedor
+    width: 100%;
+    margin: 0 auto; // Centra el contenedor en la pantalla
+    height: 100%;
+    position: relative;
+
+
+    .icon{
+      display: none; // Oculta el icono en pantallas grandes
+      font-size: 24px;
+      color: $primary-color;
+      cursor: pointer;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start; // Asegura que el logo esté alineado a la izquierda
+      gap: 10px;
+
+      img {
+        height: 60px;
+        object-fit: contain;
+        cursor: pointer;
+      }
+
+      p {
+        font-size: 22px;
+        font-weight: bold;
+        color: $secondary-color;
+        margin: 0;
+      }
+    }
+
+    
+   
+    
+    
+    .options-container {
+    .menu-container{
+      
+      display: flex;
+      justify-content: flex-end; // Asegura que el menú esté alineado a la derecha
+      align-items: center;
+      gap: 25px;
+      background-color: $tertiary-color;
+      border-radius: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      
+        .cart-link{
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          font-size: 15px;
+          color: $primary-color;
+          text-decoration: none;
+          cursor: pointer;
+
+          &:hover {
+            text-decoration: underline;
+          }
+
+          svg{
+            font-size: 20px;
+          }
+        }
+
+      a, li {
+        font-size: 16px;
+        color: $primary-color;
+        text-decoration: none;
+        cursor: pointer;
+        transition: color 0.3s;
+        list-style: none;
+        &:hover {
+          color: darken($secondary-color, 10%);
+        }
+
+       
+      }
+       div{
+         font-size: 16px;
+        color: $primary-color;
+        text-decoration: none;
+        cursor: pointer;
+        transition: color 0.3s;
+        list-style: none;
+        &:hover {
+          color: darken($secondary-color, 10%);
+        }
+        }
+    }
+  }
+}
+  // Responsive (mobile only)
+  // Responsive (mobile only)
+@include mobile() {
+ 
+    position: sticky;
+    max-width: 100%;
+
+    .head-container {
+      @include flex-container(row, center, center);
+      position: relative;
+      max-width: 93%;
+      min-height: 56px; // altura mínima del navbar
+    
+
+    // Empuja el logo para que no se solape con el botón de búsqueda
+    .logo-container {
+      align-items: center;
+      gap: 5px;
+    }
+
+  
+
+    // Icono hamburguesa (menú)
+    .icon {
+      position: absolute;
+      top: 20px;
+      right: 16px;
+      display: block;
+      z-index: 1000;
+      color: $secondary-color;
+    }
+
+    // Menú móvil (mantiene tu estructura)
+    .options-container {
+      .menu-container {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        background-color: #fff;
+        z-index: 9999;
+        padding: 20px;
+        transform: translateY(-100%);
+        transition: transform 0.4s ease-in-out;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        overflow-y: auto;
+
+        &.responsive {
+          @include flex-container(column, flex-start, flex-start);
+          transform: translateY(0%);
+        }
+
+        .back-icon {
+          cursor: pointer;
+          font-size: 14px;
+          color: $primary-color;
+
+          &:hover {
+            color: darken($primary-color, 10%);
+          }
+        }
+      }
+    }
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+    &.secondary-navbar{
+    @include flex-container(row, space-between, center);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: $tertiary-color;
+  }
+}
+
+@include tablet() {
+
+    position: sticky;
+    max-width: 100%;
+
+
+    .head-container {
+      @include flex-container(row, center, center);
+      position: relative;
+      max-width: 93%;
+      min-height: 56px; // altura mínima del navbar
+    
+
+    // Empuja el logo para que no se solape con el botón de búsqueda
+    .logo-container {
+      padding-left:15%;
+      gap: 5px;
+      justify-content: center;
+
+      img {
+        max-width: 10%;
+        height: auto;
+      }
+    }
+
+
+
+    // Icono hamburguesa (menú)
+    .icon {
+      position: absolute;
+      top: 20px;
+      right: 16px;
+      display: block;
+      z-index: 1000;
+      color: $secondary-color;
+    }
+
+    // Menú móvil (mantiene tu estructura)
+    .options-container {
+      .menu-container {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        background-color: #fff;
+        z-index: 9999;
+        padding: 20px;
+        transform: translateY(-100%);
+        transition: transform 0.4s ease-in-out;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        overflow-y: auto;
+
+        &.responsive {
+          @include flex-container(column, flex-start, flex-start);
+          transform: translateY(0%);
+        }
+
+        .back-icon {
+          cursor: pointer;
+          font-size: 14px;
+          color: $primary-color;
+
+          &:hover {
+            color: darken($primary-color, 10%);
+          }
+        }
+      }
+    }
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+    &.secondary-navbar{
+    @include flex-container(row, space-between, center);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: $tertiary-color;
+  }
+}
+
+@include laptop() {
+  .head-container {
+    max-width: 100%; // Ancho máximo del contenedor
+    width: 100%;
+    margin: 0 auto; // Centra el contenedor en la pantalla
+    height: 100%;
+    position: relative;
+
+    .logo-container {
+      padding-left: 0; // Sin padding para pantallas grandes
+      gap: 10px;
+    }
+
+ 
+
+    .options-container {
+      .menu-container {
+        display: flex; // Muestra el menú en pantallas grandes
+        position: static; // Posición estática para pantallas grandes
+        transform: none; // Sin transformación en pantallas grandes
+        flex-direction: row; // Alinea los elementos en fila
+        align-items: center; // Centra verticalmente los elementos
+      }
+    }
+  }
+
+    &.secondary-navbar{
+    @include flex-container(row, space-between, center);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: $tertiary-color;
+  }
+  
+}
+}
+
+

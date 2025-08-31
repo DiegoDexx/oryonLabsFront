@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css?family=Hind:300,400&display=swap');
+
+
+$bg: #fff;
+$text: #7288a2;
+$gray: #4d5974;
+$lightgray: #e5e5e5;
+$blue: #03b5d2;
+
+* {
+  box-sizing: border-box;
+  &::before, &::after {
+    box-sizing: border-box;
+  }
+}
+
+.product-navbar{
+  max-width: 83.33%;
+  @include flex-container(row, space-between, center);
+  margin: 0 auto;
+  padding: 1rem  ;
+
+  .back-link{
+    color: $text;
+    font-size: 1rem;
+    text-decoration: none;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+
+    .logo-container{
+    display: flex;
+    align-items: center;
+    padding: 10PX;
+    gap: 5px;
+
+    .logo {
+      width: 50px;
+      height: auto;
+    }
+
+    p {
+    margin: 0; // elimina espacio extra
+      font-size: 1.2rem;
+      color: $text;
+      font-weight: bold;
+      line-height: 1; // ayuda a centrar verticalmente el texto
+    }
+  }
+}
+
+
+.contact-container {
+  margin: 0 auto;
+  max-width: 83.33%;
+  padding: 2rem 3rem;
+   
+
+  .title {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: $tertiary-color;
+    h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      color: $primary-color;
+    }
+  }
+}
+
+.accordion {
+  width: 100%;
+
+
+  .accordion-item {
+    border-bottom: 1px solid $lightgray;
+    
+    button[aria-expanded='true'] {
+      border-bottom: 1px solid $blue;
+    }
+  }
+
+  button {
+    position: relative;
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding: 1em 0;
+    color: $text;
+    font-size: 1.15rem;
+    font-weight: 400;
+    border: none;
+    background: none;
+    outline: none;
+    background-color: $tertiary-color;
+
+    &:hover, &:focus {
+      cursor: pointer;
+      color: $blue;
+      
+      &::after {
+        cursor: pointer;
+        color: $blue;
+        border: 1px solid $blue;
+      }
+    }
+
+    .accordion-title {
+      padding: 1em 1.5em 1em 0;
+      color: $primary-color;
+    }
+
+    .icon {
+      display: inline-block;
+      position: absolute;
+      top: 18px;
+      right: 0;
+      width: 22px;
+      height: 22px;
+      border: 1px solid;
+      border-radius: 22px;
+      color: $tertiary-color;
+
+      &::before {
+        display: block;
+        position: absolute;
+        content: '';
+        top: 9px;
+        left: 5px;
+        width: 10px;
+        height: 2px;
+        background: currentColor;
+      }
+
+      &::after {
+        display: block;
+        position: absolute;
+        content: '';
+        top: 5px;
+        left: 9px;
+        width: 2px;
+        height: 10px;
+        background: currentColor;
+      }
+    }
+  }
+
+  button[aria-expanded='true'] {
+    color: $blue;
+
+    .icon {
+      &::after {
+        width: 0;
+      }
+    }
+
+    + .accordion-content {
+      opacity: 1;
+      max-height: 9em;
+      transition: all 200ms linear;
+      will-change: opacity, max-height;
+    }
+  }
+
+  .accordion-content {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 200ms linear, max-height 200ms linear;
+    will-change: opacity, max-height;
+
+    p {
+      font-size: 1rem;
+      font-weight: 300;
+      margin: 2em 0;
+    }
+
+    .copy-text{
+        color: $blue;
+        text-decoration: underline;
+    }
+  }
+}
+  //responsive
+  @include mobile() {
+
+    .product-navbar{
+      flex-direction: column !important;
+
+      a{
+        color: $text;
+        font-size: 1rem;
+        text-decoration: none;
+
+        &:hover {
+          color: $blue;
+        }
+      }
+      .logo-container{
+        justify-content: center;
+      }
+    }
+
+    .contact-container {
+      padding: 2rem;
+      width: 100%;
+      max-width: 100%;
+      box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+
+            .accordion{
+            .accordion-item {
+                button {
+                    font-size: 1.25rem;
+                }
+                span{
+                    font-size: 18px;
+                }
+                }
+            }
+
+            h2{
+                text-align: center;
+                font-size: 24px;
+            }
+        }
+
+    
+}
+
+@include tablet() {
+
+    .faq-navbar{
+      flex-direction: column !important;
+
+      a{
+        color: $text;
+        font-size: 1rem;
+        text-decoration: none;
+
+        &:hover {
+          color: $blue;
+        }
+      }
+      .logo-container{
+        justify-content: center;
+      }
+    }
+
+    .contact-container {
+      padding: 2rem;
+      width: 100%;
+      max-width: 100%;
+      box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+
+            .accordion{
+            .accordion-item {
+                button {
+                    font-size: 1.25rem;
+                }
+                span{
+                    font-size: 18px;
+                }
+                }
+            }
+
+            h2{
+                text-align: center;
+                font-size: 24px;
+            }
+        }
+
+    
+}
