@@ -250,7 +250,7 @@ const handleSubmit = async (e) => {
                 <button
                   key={key}
                   type="button"
-                  className={`category-card ${selectedCategory === key ? "selected" : ""}`}
+                  className={`category-card${selectedCategory === key ? " selected-category" : ""}`}
                   onClick={() => setSelectedCategory(key)}
                 >
                   <div className="card-icon">{Icon}</div>

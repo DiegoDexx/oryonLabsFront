@@ -209,6 +209,11 @@
     font-size: 14px;
   }
 
+  &.selected-category {
+    border-color: $primary-color;
+    transform: scale(1.03);
+  }
+
   @include mobile {
     display: grid;
     grid-template-columns: 1fr; // 1 columna, ocupa todo el ancho
