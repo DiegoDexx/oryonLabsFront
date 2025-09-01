@@ -139,7 +139,7 @@ const NavBar = ({ showLoginModal, setShowLoginModal }) => {
                 <span className="back-icon" onClick={toggleResponsive}>&#8592; Back</span>
               </div>
             )}
-            <a href="/login">Empezar</a>
+            <a href="#msform">Empezar</a>
             <a href="/faq">Contacto & FAQ</a>
             <a href="/privacy">Acerca de</a>
             <a href="https://diegoalejandrojs.com/">Equipo CEO</a>
