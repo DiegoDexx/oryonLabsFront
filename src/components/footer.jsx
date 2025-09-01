@@ -51,10 +51,10 @@ const Footer = () => {
 
           <div className="col-md-4 col-sm-6 col-xs-12 flex-row social-row">
             <ul className="social-icons flex-row">
-              <li><a href="#"><FaTwitter /></a></li>
-              <li><a href="#"><FaInstagram /></a></li>
-              <li><a href="#"><FaLinkedin /></a></li>
-              <li><a href="#"><FaGithub /></a></li>
+              <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><FaTwitter /></a></li>
+              <li><a href="https://www.instagram.com/oryonlabs?igsh=MWs0bzZ3M3I0OW1mZw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer"><FaInstagram /></a></li>
+              <li><a href="https://www.linkedin.com/in/diego-alejandro-julcamoro-sierralta-3bb4a8224/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a></li>
+              <li><a href="https://github.com/DiegoDexx" target="_blank" rel="noopener noreferrer"><FaGithub /></a></li>
             </ul>
           </div>
         </div>

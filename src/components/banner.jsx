@@ -20,13 +20,19 @@ const Banner = () => {
           }}>Aprender más</button>
         </div>
         <div className="banner__social">
-          <button className="btn btn-outline">
+          <button className="btn btn-outline" onClick={() => {
+            window.open("https://twitter.com", "_blank");
+          }}>
             <FaTwitter />
           </button>
-          <button className="btn btn-outline">
+          <button className="btn btn-outline" onClick={() => {
+            window.open("https://www.linkedin.com/in/diego-alejandro-julcamoro-sierralta-3bb4a8224/", "_blank");
+          }}>
             <FaLinkedin />
           </button>
-          <button className="btn btn-main">
+          <button className="btn btn-main" onClick={() => {
+            window.open("https://www.instagram.com/oryonlabs?igsh=MWs0bzZ3M3I0OW1mZw%3D%3D&utm_source=qr", "_blank");
+          }}>
             <FaInstagram />
           </button>
         </div>

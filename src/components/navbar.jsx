@@ -142,7 +142,7 @@ const NavBar = ({ showLoginModal, setShowLoginModal }) => {
             <a href="/login">Empezar</a>
             <a href="/faq">Contacto & FAQ</a>
             <a href="/privacy">Acerca de</a>
-            <a href="/terms">Equipo CEO</a>
+            <a href="https://diegoalejandrojs.com/">Equipo CEO</a>
           </div>
         </div>
       </div>
