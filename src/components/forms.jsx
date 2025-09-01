@@ -216,7 +216,7 @@ const handleSubmit = async (e) => {
             {errors.clientEmail && <div className="error-msg">{errors.clientEmail}</div>}
 
             <input
-              type="tel"
+              type="text"
               placeholder="Número de teléfono"
               required
               pattern="^[0-9]{7,15}$"
