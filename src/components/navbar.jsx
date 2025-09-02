@@ -113,7 +113,7 @@ const NavBar = ({ showLoginModal, setShowLoginModal }) => {
             {/* el login solo se renderiza en admin */}
             <li onClick={handleLoginClick}>Login/Sign-in</li>
               <a href="/faq">Contacto & FAQ</a>
-            <a href="/privacy">Acerca de</a>
+            <a href="/aboutu">Acerca de</a>
             <a href="/terms">Servicios</a>
           </div>
         </div>
@@ -141,7 +141,7 @@ const NavBar = ({ showLoginModal, setShowLoginModal }) => {
             )}
             <a href="#msform">Empezar</a>
             <a href="/faq">Contacto & FAQ</a>
-            <a href="/privacy">Acerca de</a>
+            <a href="/aboutus">Acerca de</a>
             <a href="https://diegoalejandrojs.com/">Equipo CEO</a>
           </div>
         </div>

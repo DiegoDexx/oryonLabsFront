@@ -2,10 +2,10 @@ import React, { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { FaStore, FaBuilding, FaIdBadge } from "react-icons/fa";
 import SuccessModal from "./successModal";
+import ProjectRequirementsFields from "./ProjectRequirementsFields";
+
 
 const steps = ["Datos", "Categoría", "Requisitos"];
-
-// Tarjetas de categorías
 const CATEGORIES = [
   {
     key: "tienda_online",
@@ -24,7 +24,12 @@ const CATEGORIES = [
     title: "Portafolio",
     desc: "Muestra de proyectos y habilidades.",
     Icon: <FaIdBadge />,
-  },
+  },  {
+    key: "otros",
+    title: "Otros",
+    desc: "Proyectos que no encajan en las categorías anteriores.",
+    Icon: <FaIdBadge />,
+  }
 ];
 
 const ProjectRequestForm = () => {
@@ -122,6 +127,8 @@ const ProjectRequestForm = () => {
   const onChangeValue = (field, value) => {
     setFormValues((prev) => ({ ...prev, [field]: value }));
   };
+
+
 const handleSubmit = async (e) => {
   e.preventDefault();
   if (!validateStep2()) return;
@@ -176,9 +183,8 @@ const handleSubmit = async (e) => {
   } finally {
     setSubmitting(false);
   }
-};
-
-
+}
+ 
   return (
     <div className="multistep-wrapper col-lg-11" id="multistep-form">
       <form id="msform" onSubmit={handleSubmit} className="col-lg-11">
@@ -204,6 +210,7 @@ const handleSubmit = async (e) => {
               value={clientName}
               onChange={(e) => setClientName(e.target.value)}
             />
+
             {errors.clientName && <div className="error-msg">{errors.clientName}</div>}
              
              <input
@@ -213,6 +220,7 @@ const handleSubmit = async (e) => {
               value={clientEmail}
               onChange={(e) => setClientEmail(e.target.value)}
             />
+           
             {errors.clientEmail && <div className="error-msg">{errors.clientEmail}</div>}
 
             <input
@@ -239,7 +247,7 @@ const handleSubmit = async (e) => {
               nextStep();
             }} />
 
-            
+
           </fieldset>
         )}
 
@@ -281,108 +289,20 @@ const handleSubmit = async (e) => {
         )}
 
         {/* STEP 2 */}
-        {currentStep === 2 && (
-          <fieldset>
-            <h2 className="fs-title">Requisitos del proyecto</h2>
-            <h3 className="fs-subtitle">
-              Completa los campos para {selectedCategory.replaceAll("_", " ")}
-            </h3>
-
-            {loadingFields ? (
-              <p>Cargando campos…</p>
-            ) : categoryFields.length === 0 ? (
-              <p>No hay campos configurados para esta categoría.</p>
-            ) : (
-              <div className="fields-grid">
-                {categoryFields.map((f) => (
-                  <div className="form-group" key={f.field_name}>
-                    <label htmlFor={f.field_name}>
-                      {f.label}
-                      {f.required && <span className="req">*</span>}
-                    </label>
-
-                    {f.type === "text" && (
-                      <input
-                        id={f.field_name}
-                        type="text"
-                        required
-                        value={formValues[f.field_name] ?? ""}
-                        onChange={(e) => onChangeValue(f.field_name, e.target.value)}
-                      />
-                    )}
-                    {f.type === "number" && (
-                      <input
-                        id={f.field_name}
-                        type="number"
-                        required
-                        value={formValues[f.field_name] ?? ""}
-                        onChange={(e) => onChangeValue(f.field_name, e.target.value)}
-                      />
-                    )}
-                    {f.type === "boolean" && (
-                      <div className="radio-wrap">
-                      <label>
-                        <input
-                          type="radio"
-                          name={f.field_name}
-                          value="true"
-                          required
-                          checked={formValues[f.field_name] === true}
-                          onChange={() => onChangeValue(f.field_name, true)}
-                        />
-                        Sí
-                      </label>
-                      <label>
-                        <input
-                          type="radio"
-                          name={f.field_name}
-                          value="false"
-                          required
-                          checked={formValues[f.field_name] === false}
-                          onChange={() => onChangeValue(f.field_name, false)}
-                        />
-                        No
-                      </label>
-                    </div>
-                          )}
-                    {f.type === "textarea" && (
-                      <textarea
-                        id={f.field_name}
-                        rows={4}
-                        required
-                        value={formValues[f.field_name] ?? ""}
-                        onChange={(e) => onChangeValue(f.field_name, e.target.value)}
-                      />
-                    )}
-                    {f.type === "select" && (
-                      <select
-                        id={f.field_name}
-                        required
-                        value={formValues[f.field_name] ?? ""}
-                        onChange={(e) => onChangeValue(f.field_name, e.target.value)}
-                      >
-                        <option value="">Seleccione…</option>
-                        {Array.isArray(f.options) &&
-                          f.options.map((opt, idx) => (
-                            <option key={idx} value={opt}>
-                              {opt}
-                            </option>
-                          ))}
-                      </select>
-                    )}
-                    {errors[f.field_name] && <div className="error-msg">{errors[f.field_name]}</div>}
-                  </div>
-                ))}
-              </div>
-            )}
-
-            <div className="step-actions">
-              <input type="button" value="Anterior" className="action-button-previous" onClick={prevStep} />
-              <input type="submit" value={submitting ? "Enviando…" : "Enviar"} className="action-button" disabled={submitting} />
-            </div>
-            {submitOk && <div className="success-msg"></div>}
-       
-          </fieldset>
+               {currentStep === 2 && (
+          <>
+            <ProjectRequirementsFields
+              selectedCategory={selectedCategory}
+              loadingFields={loadingFields}
+              categoryFields={categoryFields}
+              formValues={formValues}
+              onChangeValue={onChangeValue}
+              errors={errors}
+              prevStep={prevStep}
+              submitting={submitting}
+              submitOk={submitOk}
+            />
+          </>
         )}
       </form>
            {showSuccessModal && (
@@ -395,5 +315,6 @@ const handleSubmit = async (e) => {
     </div>
   );
 };
+
 
 export default ProjectRequestForm;

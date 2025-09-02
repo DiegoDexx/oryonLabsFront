@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { useGet } from '../hooks/useFetch';
 import { useSelector } from 'react-redux';
-import ProjectsTable from '../components/ProjectsTable';
+import ProjectsTable from '../components/projecttable';
 import ClientsTable from '../components/ClientsTable';
+import { useNavigate } from 'react-router-dom';
 
 const AdminPanel = () => {
   const [projects, setProjects] = useState([]);
   const [clients, setClients] = useState([]);
   const [selectedOption, setSelectedOption] = useState('projects'); // pestañas
   const token = useSelector((state) => state.auth.token);
-
+  const navigate = useNavigate();
   const projectsUrl = 'https://oryonlabsdb-production.up.railway.app/api/admin/projects/full';
   const clientsUrl = 'https://oryonlabsdb-production.up.railway.app/api/clients';
+
+  // SI NO ESTA AUTENTICADO REDIRIGIR A LOGIN
+  if (!token) {
+    navigate('/login');
+  }
 
   // Obtener proyectos completos
   const { data: rawProjects = [], loading: projectsLoading, error: projectsError } = useGet(projectsUrl, token);

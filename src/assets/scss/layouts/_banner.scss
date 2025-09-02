@@ -5,6 +5,7 @@
   max-width: 83.33%;
   @include flex-container(row, flex-start, center);
   margin-left: 10%;
+
   opacity: 0;
   transform: translateY(30px);
   animation: fadeUp 1s ease forwards;
@@ -116,6 +117,7 @@
         position: absolute;
         width: 70%;
         height: 92vh;
+      
         left: 5%;
         top: -122px;
         z-index: -1; // 👉 debajo del contenido
@@ -268,6 +270,7 @@
       padding: 2rem;
       width: 80%;
       text-align: center;
+      z-index: 2;
       h1 {
         font-size: 1.6rem;
         color: $tertiary-color; // 👉 texto blanco en móviles

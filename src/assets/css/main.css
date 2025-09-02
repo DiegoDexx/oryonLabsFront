@@ -1062,6 +1062,7 @@ body .overlay {
     padding: 2rem;
     width: 80%;
     text-align: center;
+    z-index: 2;
   }
   .banner__left h1 {
     font-size: 1.6rem;
@@ -1793,7 +1794,8 @@ body .overlay {
 .multistep-wrapper {
   margin: 0 auto;
   max-width: 83.33%;
-  height: 72vh;
+  min-height: 74vh;
+  height: auto;
   background-color: #008ECC;
   display: flex;
   justify-content: center;
@@ -1900,6 +1902,7 @@ body .overlay {
   margin-top: 8px;
   display: flex;
   justify-content: center;
+  border-color: rgb(255, 255, 255);
 }
 
 /* Encabezados */
@@ -2038,6 +2041,32 @@ body .overlay {
 .form-group label .req {
   color: #008ECC;
   margin-left: 6px;
+}
+.form-group label .help-icon {
+  position: relative;
+  cursor: pointer;
+}
+.form-group label .help-icon:hover .help-tooltip {
+  display: block;
+}
+.form-group label .help-icon:hover .help-tooltip {
+  display: block;
+}
+.form-group label .help-tooltip {
+  display: none;
+  position: absolute;
+  left: 110%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  color: #222;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 0.95em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  white-space: pre-line;
+  z-index: 10;
 }
 
 .error-msg {

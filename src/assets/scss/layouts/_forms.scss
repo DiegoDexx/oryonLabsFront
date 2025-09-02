@@ -5,7 +5,8 @@
 .multistep-wrapper {
   margin: 0 auto;
   max-width: 83.33%;
-  height: 72vh;
+  min-height: 74vh; // asegura un mínimo
+  height: auto;     // permite crecer si el contenido lo necesita
   background-color: $secondary-color;
   display: flex;
   justify-content: center;
@@ -113,6 +114,7 @@
   margin-top: 8px;
   display: flex;
   justify-content: center;
+  border-color: $tertiary-color;
 }
 
 /* Encabezados */
@@ -257,6 +259,36 @@
     .req {
       color: $secondary-color;
       margin-left: 6px;
+    }
+
+    .help-icon {
+      position: relative;
+      cursor: pointer;
+
+      &:hover .help-tooltip {
+        display: block;
+      }
+
+      &:hover .help-tooltip {
+        display: block;
+      }
+    }
+
+    .help-tooltip {
+      display: none;
+      position: absolute;
+      left: 110%;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #fff;
+      color: #222;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 0.95em;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      white-space: pre-line;
+      z-index: 10;
     }
   }
 }
