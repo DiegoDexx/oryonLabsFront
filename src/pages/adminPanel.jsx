@@ -79,7 +79,7 @@ const AdminPanel = () => {
           {clientsLoading && <p>Cargando clientes...</p>}
           {clientsError && <p className="error-message">{clientsError.message}</p>}
 
-          <ClientsTable clients={clients} />
+          <clientsTable clients={clients} />
         </>
       )}
     </div>
