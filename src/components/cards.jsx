@@ -22,8 +22,9 @@ const WhyChooseUsCards = () => {
         </button>
         <h5>Desarrollo eficiente</h5>
         <p>
-          Porque utilizamos las mejores prácticas y herramientas para garantizar
-          un desarrollo ágil y de alta calidad.
+          
+          Porque ofrecemos soluciones innovadoras y personalizadas para cada
+          cliente.
         </p>
       </div>
 
