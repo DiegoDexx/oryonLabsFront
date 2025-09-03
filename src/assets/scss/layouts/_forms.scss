@@ -5,18 +5,30 @@
 .multistep-wrapper {
   margin: 0 auto;
   max-width: 83.33%;
-  min-height: 74vh; // asegura un mínimo
-  height: auto;     // permite crecer si el contenido lo necesita
+  min-height: 74vh;
+  height: auto;
   background-color: $secondary-color;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0 10px;
+  box-sizing: border-box;
+  overflow: auto;
+
+  @media screen and (max-height: 700px) {
+    min-height: 0;
+    height: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    align-items: flex-start;
+  }
 
   @include mobile {
     padding: 20px;
     height: auto;
     width: 100%;
+    min-height: 0;
+    align-items: flex-start;
   }
 }
 

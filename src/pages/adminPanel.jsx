@@ -15,9 +15,15 @@ const AdminPanel = () => {
   const clientsUrl = 'https://oryonlabsdb-production.up.railway.app/api/clients';
 
   // SI NO ESTA AUTENTICADO REDIRIGIR A LOGIN
+ useEffect(() => {
   if (!token) {
+    console.log('No token found, redirecting to login',  token);
     navigate('/login');
+  }else{
+    console.log('Token found, fetching data', token);
+    navigate('/adminpanel');
   }
+}, [token, navigate]);
 
   // Obtener proyectos completos
   const { data: rawProjects = [], loading: projectsLoading, error: projectsError } = useGet(projectsUrl, token);

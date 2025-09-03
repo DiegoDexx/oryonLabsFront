@@ -1801,12 +1801,25 @@ body .overlay {
   justify-content: center;
   align-items: center;
   padding: 0 10px;
+  box-sizing: border-box;
+  overflow: auto;
+}
+@media screen and (max-height: 700px) {
+  .multistep-wrapper {
+    min-height: 0;
+    height: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    align-items: flex-start;
+  }
 }
 @media only screen and (min-width: 360px) and (max-width: 460px) {
   .multistep-wrapper {
     padding: 20px;
     height: auto;
     width: 100%;
+    min-height: 0;
+    align-items: flex-start;
   }
 }
 

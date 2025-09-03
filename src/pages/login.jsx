@@ -23,52 +23,39 @@ const Login = ({ onClose }) => {
         setOnLoginSuccess(true);
     }
 
+  const handleLogin = async () => {
+    const loginUrl = 'https://oryonlabsdb-production.up.railway.app/api/login';
+    const loginData = { email, password };
 
+    try {
+      const response = await post(loginUrl, loginData);
 
-    const handleLogin = async (handleLoginSuccess) => {
-        const loginUrl = 'https://oryonlabsdb-production.up.railway.app/api/login'; // Cambia a tu URL de login
-        const loginData = { email, password };
+      if (response.data) {
+        console.log('Login successful:', response.data);
 
-        try{
-        const response = await post(loginUrl, loginData);
+        const { access_token, user } = response.data;
 
-        if (response.data) {
-            console.log('Login successful:', response.data); // Verifica la respuesta del backend
+        // Guardar en Redux + localStorage
+        dispatch(loginUser(user, access_token));
 
-            //comprobación de toker:
-          
-            dispatch(loginUser(response.data.access_token)); // Guardar token en Redux
-            dispatch({ type: 'SET_USER', payload: response.data.user }); // Guardar datos de usuario en Redux
-            handleLoginSuccess(); // Llamar a la función de éxito de inicio de sesión
-            onClose(); // Cerrar el modal después de iniciar sesión
-
-            //obteber authToken de localStorage
-            const authToken = localStorage.getItem('authToken');
-            console.log('Auth Token:', authToken); // Verificar el token en la consola
-            console.log(onLoginSuccess)
-            
-            if (response.data.user.roles.includes('CEO') || response.data.user.roles.includes('Administrador')) {
-              
-                navigate('/admin'); // Redirigir al panel de administración
-              
-            } else if (response.data.user.roles.includes('Cliente')) {
-           
-                navigate('/home'); // Redirigir al panel de cliente
-            }
-        
-
+        // Redirigir según rol
+        if (user.roles.includes('admin') || user.roles.includes('Administrador')) {
+          navigate('/adminpanel');
+        } else {
+          navigate('/home');
         }
-        } catch (error) {
-            console.error('Error response:', error); // Inspecciona la respuesta del backend
-            if (error.response && error.response.status === 401) {
-                setErrorMessage(error.response.data.error); // Actualiza el mensaje de error
-                
-              } else {
-                setErrorMessage('Error inesperado. ¡Intentalo de nuevo más tarde!');
 
-              }
-        }
-    };
+        onClose();
+      }
+    } catch (error) {
+      console.error('Error response:', error);
+      if (error.response && error.response.status === 401) {
+        setErrorMessage(error.response.data.error);
+      } else {
+        setErrorMessage('Error inesperado. Intenta de nuevo más tarde.');
+      }
+    }
+  };
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);

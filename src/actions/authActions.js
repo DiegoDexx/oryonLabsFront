@@ -1,15 +1,20 @@
+// src/actions/authActions.js
+export const loginUser = (user, token) => {
+  // Guardar en localStorage
+  localStorage.setItem('authToken', token);
+  localStorage.setItem('user', JSON.stringify(user));
 
-export const loginUser = (token) => {
-    localStorage.setItem('authToken', token); // Guarda el token en localStorage
-    return {
-      type: 'SET_TOKEN',
-      payload: token,
-    };
+  return {
+    type: 'LOGIN_USER',
+    payload: { user, token },
   };
-  
-  export const logoutUser = () => {
-    localStorage.removeItem('authToken'); // Elimina el token de localStorage
-    return {
-      type: 'LOGOUT',
-    };
+};
+
+export const logoutUser = () => {
+  localStorage.removeItem('authToken');
+  localStorage.removeItem('user');
+
+  return {
+    type: 'LOGOUT_USER',
   };
+};

@@ -1,31 +1,36 @@
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store';
 
-
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
-import Home from './pages/home.jsx'
 import NavBar from './components/navbar';
-// import Footer from './components/Footer'
-import { Provider } from 'react-redux'
-import FAQWebConsultora from './pages/faq.jsx';
-import store from './store' // Importa tu store de Redux
-import Footer from './components/footer.jsx';
-import AdminPanel from './pages/adminPanel.jsx';
-import Login from './pages/login.jsx';  
+import Footer from './components/footer';
+import Home from './pages/home';
+import FAQWebConsultora from './pages/faq';
+import AdminPanel from './pages/adminPanel';
+import Login from './pages/login';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
-    const [showLoginModal, setShowLoginModal] = React.useState(false);
-    //siempre redirecciona a /home al iniciar la app
-
   return (
     <Provider store={store}>
       <Router>
-        <NavBar showLoginModal={showLoginModal} setShowLoginModal={setShowLoginModal} />
+        <NavBar />
         <Routes>
-             <Route path="/" element={<Navigate to="/home" replace />} />
+          <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/home" element={<Home />} />
           <Route path="/faq" element={<FAQWebConsultora />} />
-          <Route path="/adminpanel" element={<AdminPanel />} />
-          <Route path="/login" element={<Login />} />
+
+          {/* Rutas protegidas */}
+          <Route
+            path="/adminpanel"
+            element={
+              <PrivateRoute roles={['admin', 'Administrador']}>
+                <AdminPanel />
+              </PrivateRoute>
+            }
+          />
+
+          <Route path="/login" element={<Login onClose={() => {}} />} />
         </Routes>
         <Footer />
       </Router>
@@ -33,9 +38,4 @@ function App() {
   );
 }
 
-
-
 export default App;
-
-
-
