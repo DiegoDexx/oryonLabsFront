@@ -1,6 +1,6 @@
 import React from 'react';
 
-const clientsTable = ({ clients }) => {
+const ClientsTable = ({ clients }) => {
   if (!clients || clients.length === 0) {
     return <p>No hay clientes disponibles.</p>;
   }
@@ -39,4 +39,4 @@ const clientsTable = ({ clients }) => {
   );
 };
 
-export default clientsTable;
+export default ClientsTable;

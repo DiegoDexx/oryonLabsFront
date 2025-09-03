@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useGet } from '../hooks/useFetch';
 import { useSelector } from 'react-redux';
 import ProjectsTable from '../components/projecttable';
-import clientsTable from '../components/ClientsTable';
+import ClientsTable from '../components/ClientsTable';
 import { useNavigate } from 'react-router-dom';
 
 const AdminPanel = () => {
@@ -79,7 +79,7 @@ const AdminPanel = () => {
           {clientsLoading && <p>Cargando clientes...</p>}
           {clientsError && <p className="error-message">{clientsError.message}</p>}
 
-          <clientsTable clients={clients} />
+          <ClientsTable clients={clients} />
         </>
       )}
     </div>
