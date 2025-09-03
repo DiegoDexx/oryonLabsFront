@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useGet } from '../hooks/useFetch';
 import { useSelector } from 'react-redux';
 import ProjectsTable from '../components/projecttable';
-import ClientsTable from '../components/ClientsTable';
+import clientsTable from '../components/ClientsTable';
 import { useNavigate } from 'react-router-dom';
 
 const AdminPanel = () => {
