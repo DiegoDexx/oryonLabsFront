@@ -146,12 +146,11 @@ const handleSubmit = async (e) => {
     const clientId = clientResponse.data.id;
 
     // 2️⃣ Preparar payload del proyecto usando el clientId recién creado
-    const requirements = categoryFields.map((f) => ({
-      field_id: f.id,
-      field_name: f.field_name,
+      const requirements = categoryFields.map((f) => ({
+        field_id: f.id, // 👈 aseguramos que exista
+        field_value: formValues[f.field_name],
+      }));
 
-      value: formValues[f.field_name],
-    }));
 
     const payload = {
       name: projectName,   // 👈 corregido
