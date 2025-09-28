@@ -83,7 +83,7 @@ const NavBar = ({ showLoginModal, setShowLoginModal }) => {
                 <span className="back-icon" onClick={toggleResponsive}>&#8592; Back</span>
               </div>
             )}
-            <Link to="/profile"><FaUser />&nbsp;Panel</Link>
+            <Link to="/adminpanel"><FaUser />&nbsp;Panel</Link>
 
             <li onClick={handleLogout}><FaDoorClosed />&nbsp;Cerrar sesión</li>
           </div>
