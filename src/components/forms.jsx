@@ -147,7 +147,7 @@ const handleSubmit = async (e) => {
 
     // 2️⃣ Preparar payload del proyecto usando el clientId recién creado
       const requirements = categoryFields.map((f) => ({
-        field_id: f.id, // 👈 aseguramos que exista
+        field_id: f.id ?? f.field_id,
         value: formValues[f.field_name],
       }));
 
@@ -161,7 +161,12 @@ const handleSubmit = async (e) => {
 
 
     // 3️⃣ Crear el proyecto
-    await axios.post("https://oryonlabsdb-production.up.railway.app/api/projects", payload);
+   await axios.post(
+  "https://oryonlabsdb-production.up.railway.app/api/projects",
+  payload,
+  { headers: { "Content-Type": "application/json" } }
+);
+
     setSubmitOk(true);
 
     // Reset suave

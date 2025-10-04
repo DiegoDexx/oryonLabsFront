@@ -13,26 +13,34 @@ const ProjectsTable = ({ projects }) => {
     { field: "clientName", headerName: "Cliente", flex: 1 },
     { field: "clientEmail", headerName: "Email Cliente", flex: 1.5 },
 
-    {
-      field: "requirements",
-      headerName: "Requisitos",
-      flex: 2,
-      renderCell: (params) =>
-        params.row.requirements?.length > 0 ? (
-          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
-            {params.row.requirements.map((req, idx) => (
-              <Chip
-                key={req.id || idx}
-                label={`${req.field?.label || req.field_id}: ${req.field_value}`}
-                variant="outlined"
-                size="small"
-              />
-            ))}
-          </Box>
-        ) : (
-          <em>Sin requisitos</em>
-        ),
-    },
+   {
+  field: "requirements",
+  headerName: "Requisitos",
+  flex: 2,
+  renderCell: (params) =>
+    params.row.requirements?.length > 0 ? (
+      <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
+        {params.row.requirements.map((req, idx) => (
+        
+        <Chip
+        key={req.field_id || idx}
+        label={`${req.label}: ${
+          req.field_value === "1"
+            ? "Sí"
+            : req.field_value === "0"
+            ? "No"
+            : req.field_value
+        }`}
+        variant="outlined"
+        size="small"
+      />
+        ))}
+      </Box>
+    ) : (
+      <em>Sin requisitos</em>
+    ),
+},
+
   ];
 
   // 🔥 Normalizamos los datos para DataGrid
@@ -47,13 +55,14 @@ const ProjectsTable = ({ projects }) => {
 
   return (
     <Box sx={{ height: 500, width: "100%" }}> 
-      <DataGrid
+   <DataGrid
         rows={rows}
         columns={columns}
         pageSize={5}
         rowsPerPageOptions={[5, 10, 20]}
         disableSelectionOnClick
         autoHeight
+        getRowHeight={() => 'auto'} // 👈 permite altura dinámica
       />
     </Box>
   );

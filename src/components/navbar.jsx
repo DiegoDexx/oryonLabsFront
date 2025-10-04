@@ -32,6 +32,8 @@ const NavBar = ({ showLoginModal, setShowLoginModal }) => {
       await post('https://oryonlabsdb-production.up.railway.app/api/logout', {}, token);
       dispatch(logoutUser());
       navigate("/home");
+      
+
     } catch (error) {
       console.error('Logout failed:', error.response || error.message);
       alert('Failed to log out. Please try again.');
