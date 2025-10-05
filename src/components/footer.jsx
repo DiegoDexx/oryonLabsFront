@@ -30,11 +30,11 @@ const Footer = () => {
           <div className="col-xs-6 col-md-2">
             <h6>Quick Links</h6>
             <ul className="footer-links">
-              <li><a href="/faq">About Us</a></li>
-              <li><a href="/faq">Contact Us</a></li>
-              <li><a href="#">Contribute</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Sitemap</a></li>
+              <li><a href="/faq">Acerca de</a></li>
+              <li><a href="/faq">Contáctanos</a></li>
+              <li><a href="#">Contribuir</a></li>
+              <li><a href="#">Política de Privacidad</a></li>
+              <li><a href="#">Mapa del Sitio</a></li>
             </ul>
           </div>
         </div>
