@@ -23,8 +23,8 @@ const WhyChooseUsCards = () => {
         <h5>Desarrollo eficiente</h5>
         <p>
           
-          Porque ofrecemos soluciones innovadoras y personalizadas para cada
-          cliente.
+          Porque utilizamos metodologías ágiles para entregar proyectos a tiempo
+          y dentro del presupuesto.
         </p>
       </div>
 
@@ -32,8 +32,8 @@ const WhyChooseUsCards = () => {
         <h2>¿Por qué elegirnos?</h2>
             <hr className="line" />
         <p>
-          Porque ofrecemos soluciones innovadoras y personalizadas para cada
-          cliente.
+          Porque somos un equipo apasionado y comprometido con la excelencia en
+          cada proyecto que emprendemos.
         </p>
         <button className="outline_btn" onClick={() => navigate('/faq')}>Saber más</button>
 
