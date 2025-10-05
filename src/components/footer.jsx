@@ -16,22 +16,22 @@ const Footer = () => {
           </div>
 
           <div className="col-xs-6 col-md-2">
-            <h6>Categorías</h6>
+            <h6>Tags</h6>
             <ul className="footer-links">
-              <li><a href="#">C</a></li>
-              <li><a href="#">UI Design</a></li>
-              <li><a href="#">PHP</a></li>
-              <li><a href="#">Java</a></li>
-              <li><a href="#">Android</a></li>
-              <li><a href="#">Templates</a></li>
+              <li><a href="#">Desarrollo Web</a></li>
+              <li><a href="#">SEO</a></li>
+              <li><a href="#">Aplicaciones Móviles</a></li>
+              <li><a href="#">Consultoría TI</a></li>
+              <li><a href="#">Inteligencia Artificial</a></li>
+             
             </ul>
           </div>
 
           <div className="col-xs-6 col-md-2">
             <h6>Quick Links</h6>
             <ul className="footer-links">
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Contact Us</a></li>
+              <li><a href="/faq">About Us</a></li>
+              <li><a href="/faq">Contact Us</a></li>
               <li><a href="#">Contribute</a></li>
               <li><a href="#">Privacy Policy</a></li>
               <li><a href="#">Sitemap</a></li>
